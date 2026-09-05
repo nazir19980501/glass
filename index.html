@@ -1,0 +1,2979 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <title>LUMORA | Glass & Mirrors</title>
+
+  <meta
+    name="description"
+    content="LUMORA Glass & Mirrors creates premium custom mirrors, shower glass, architectural glass, partitions, doors and glass railings."
+  />
+
+  <!-- Tailwind -->
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <!-- Google Font -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+
+  <link
+    href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600;700;800&display=swap"
+    rel="stylesheet"
+  />
+
+  <!-- Font Awesome -->
+  <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+  />
+
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: "Manrope", sans-serif;
+      background: #f5f6f7;
+      color: #111111;
+    }
+
+    ::selection {
+      background: #111111;
+      color: white;
+    }
+
+    /* =========================
+       GLASS EFFECT
+    ========================= */
+
+    .glass {
+      background: rgba(255, 255, 255, 0.58);
+      backdrop-filter: blur(22px);
+      -webkit-backdrop-filter: blur(22px);
+      border: 1px solid rgba(255, 255, 255, 0.75);
+      box-shadow:
+        0 20px 60px rgba(40, 50, 60, 0.08),
+        inset 0 1px 0 rgba(255, 255, 255, 0.9);
+    }
+
+    .glass-dark {
+      background: rgba(20, 24, 27, 0.72);
+      backdrop-filter: blur(22px);
+      -webkit-backdrop-filter: blur(22px);
+      border: 1px solid rgba(255, 255, 255, 0.14);
+    }
+
+    .glass-shine {
+      position: relative;
+      overflow: hidden;
+    }
+
+    .glass-shine::after {
+      content: "";
+      position: absolute;
+      top: -100%;
+      left: -70%;
+      width: 45%;
+      height: 300%;
+      transform: rotate(22deg);
+      background: linear-gradient(
+        to right,
+        transparent,
+        rgba(255, 255, 255, 0.45),
+        transparent
+      );
+      transition: left 0.8s ease;
+      pointer-events: none;
+    }
+
+    .glass-shine:hover::after {
+      left: 125%;
+    }
+
+    /* =========================
+       BACKGROUND
+    ========================= */
+
+    .glass-grid {
+      background-image:
+        linear-gradient(
+          rgba(30, 40, 45, 0.045) 1px,
+          transparent 1px
+        ),
+        linear-gradient(
+          90deg,
+          rgba(30, 40, 45, 0.045) 1px,
+          transparent 1px
+        );
+      background-size: 55px 55px;
+    }
+
+    .silver-gradient {
+      background:
+        radial-gradient(
+          circle at 20% 20%,
+          rgba(255, 255, 255, 0.95),
+          transparent 35%
+        ),
+        radial-gradient(
+          circle at 80% 30%,
+          rgba(205, 218, 224, 0.55),
+          transparent 35%
+        ),
+        linear-gradient(
+          135deg,
+          #eef2f4,
+          #ffffff 45%,
+          #dfe5e8
+        );
+    }
+
+    .mirror-gradient {
+      background:
+        linear-gradient(
+          135deg,
+          #dce5e9 0%,
+          #ffffff 20%,
+          #aebcc3 43%,
+          #f9fafb 65%,
+          #c5d0d5 100%
+        );
+    }
+
+    /* =========================
+       TEXT
+    ========================= */
+
+    .text-silver {
+      background: linear-gradient(
+        120deg,
+        #111111,
+        #68767d,
+        #111111
+      );
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    /* =========================
+       HERO IMAGE
+    ========================= */
+
+    .hero-image {
+      background:
+        linear-gradient(
+          to bottom,
+          rgba(255,255,255,0.02),
+          rgba(0,0,0,0.18)
+        ),
+        url("https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?auto=format&fit=crop&w=1800&q=90")
+        center / cover;
+    }
+
+    /* =========================
+       ANIMATIONS
+    ========================= */
+
+    .fade-up {
+      opacity: 0;
+      transform: translateY(35px);
+      transition:
+        opacity 0.8s ease,
+        transform 0.8s ease;
+    }
+
+    .fade-up.show {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .float {
+      animation: float 5s ease-in-out infinite;
+    }
+
+    @keyframes float {
+      0%,
+      100% {
+        transform: translateY(0);
+      }
+
+      50% {
+        transform: translateY(-12px);
+      }
+    }
+
+    .pulse-light {
+      animation: pulseLight 2.5s ease-in-out infinite;
+    }
+
+    @keyframes pulseLight {
+      0%,
+      100% {
+        box-shadow: 0 0 0 rgba(255,255,255,0);
+      }
+
+      50% {
+        box-shadow: 0 0 35px rgba(255,255,255,0.8);
+      }
+    }
+
+    /* =========================
+       SCROLLBAR
+    ========================= */
+
+    ::-webkit-scrollbar {
+      width: 8px;
+    }
+
+    ::-webkit-scrollbar-track {
+      background: #f1f2f3;
+    }
+
+    ::-webkit-scrollbar-thumb {
+      background: #b8c2c7;
+      border-radius: 999px;
+    }
+
+    ::-webkit-scrollbar-thumb:hover {
+      background: #7b888e;
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- =====================================================
+       NAVBAR
+  ====================================================== -->
+
+  <header
+    id="navbar"
+    class="fixed top-0 left-0 w-full z-50 transition-all duration-300"
+  >
+
+    <div class="max-w-7xl mx-auto px-5 sm:px-6 lg:px-8 py-4">
+
+      <div
+        class="glass rounded-2xl px-4 sm:px-6 h-16
+               flex items-center justify-between"
+      >
+
+        <!-- LOGO -->
+
+        <a href="#home" class="flex items-center gap-3">
+
+          <div
+            class="w-10 h-10 rounded-xl
+                   bg-black flex items-center justify-center"
+          >
+            <i class="fa-regular fa-gem text-white"></i>
+          </div>
+
+          <div>
+            <h1
+              class="font-bold tracking-[0.18em] text-base sm:text-lg"
+            >
+              LUMORA
+            </h1>
+
+            <p
+              class="text-[9px] sm:text-[10px]
+                     tracking-[0.28em] uppercase text-gray-500"
+            >
+              Glass & Mirrors
+            </p>
+          </div>
+
+        </a>
+
+
+        <!-- DESKTOP NAV -->
+
+        <nav
+          class="hidden lg:flex items-center gap-8
+                 text-sm font-medium text-gray-500"
+        >
+
+          <a
+            href="#home"
+            class="hover:text-black transition"
+          >
+            Home
+          </a>
+
+          <a
+            href="#services"
+            class="hover:text-black transition"
+          >
+            Services
+          </a>
+
+          <a
+            href="#about"
+            class="hover:text-black transition"
+          >
+            About
+          </a>
+
+          <a
+            href="#projects"
+            class="hover:text-black transition"
+          >
+            Projects
+          </a>
+
+          <a
+            href="#contact"
+            class="hover:text-black transition"
+          >
+            Contact
+          </a>
+
+        </nav>
+
+
+        <!-- DESKTOP CTA -->
+
+        <a
+          href="first.html"
+          class="hidden lg:inline-flex
+                 bg-black text-white
+                 px-6 py-3 rounded-xl
+                 text-sm font-semibold
+                 hover:bg-gray-800 transition"
+        >
+          Next Page
+        </a>
+
+
+        <!-- MOBILE BUTTON -->
+
+        <button
+          id="menuBtn"
+          class="lg:hidden w-10 h-10 rounded-xl
+                 bg-black text-white
+                 flex items-center justify-center"
+          aria-label="Open menu"
+        >
+          <i id="menuIcon" class="fa-solid fa-bars"></i>
+        </button>
+
+      </div>
+
+
+      <!-- MOBILE MENU -->
+
+      <div id="mobileMenu" class="hidden lg:hidden mt-3">
+
+        <div
+          class="glass rounded-2xl p-4
+                 flex flex-col gap-1"
+        >
+
+          <a
+            href="#home"
+            class="mobile-link px-4 py-3 rounded-xl
+                   hover:bg-black/5 transition"
+          >
+            Home
+          </a>
+
+          <a
+            href="#services"
+            class="mobile-link px-4 py-3 rounded-xl
+                   hover:bg-black/5 transition"
+          >
+            Services
+          </a>
+
+          <a
+            href="#about"
+            class="mobile-link px-4 py-3 rounded-xl
+                   hover:bg-black/5 transition"
+          >
+            About
+          </a>
+
+          <a
+            href="#projects"
+            class="mobile-link px-4 py-3 rounded-xl
+                   hover:bg-black/5 transition"
+          >
+            Projects
+          </a>
+
+          <a
+            href="#contact"
+            class="mobile-link px-4 py-3 rounded-xl
+                   hover:bg-black/5 transition"
+          >
+            Contact
+          </a>
+
+          <a
+            href="first.html"
+            class="mt-2 bg-black text-white
+                   px-4 py-3 rounded-xl text-center
+                   font-semibold"
+          >
+            Next Page
+          </a>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </header>
+
+
+  <!-- =====================================================
+       HERO
+  ====================================================== -->
+
+  <main id="home">
+
+    <section
+      class="relative min-h-screen pt-32 pb-16
+             overflow-hidden glass-grid"
+    >
+
+      <!-- Background glow -->
+
+      <div
+        class="absolute -top-48 -left-48
+               w-[500px] h-[500px]
+               bg-white rounded-full
+               blur-[120px] opacity-80"
+      ></div>
+
+      <div
+        class="absolute top-1/3 -right-48
+               w-[600px] h-[600px]
+               bg-slate-300 rounded-full
+               blur-[130px] opacity-40"
+      ></div>
+
+
+      <div
+        class="max-w-7xl mx-auto px-5 sm:px-6 lg:px-8
+               relative z-10"
+      >
+
+        <div
+          class="grid lg:grid-cols-2
+                 gap-12 lg:gap-20
+                 items-center min-h-[calc(100vh-150px)]"
+        >
+
+          <!-- HERO CONTENT -->
+
+          <div class="fade-up">
+
+            <div
+              class="inline-flex items-center gap-3
+                     glass rounded-full
+                     px-4 py-2 mb-7"
+            >
+
+              <span
+                class="w-2 h-2 rounded-full
+                       bg-black pulse-light"
+              ></span>
+
+              <span
+                class="text-xs sm:text-sm
+                       uppercase tracking-[0.2em]
+                       text-gray-500"
+              >
+                Premium Glass Solutions
+              </span>
+
+            </div>
+
+
+            <h2
+              class="text-5xl sm:text-6xl
+                     lg:text-7xl xl:text-8xl
+                     leading-[0.95]
+                     font-semibold
+                     tracking-[-0.06em]"
+            >
+
+              Designed to
+              <span class="block text-silver">
+                reflect
+              </span>
+
+              your space.
+
+            </h2>
+
+
+            <p
+              class="mt-7 max-w-xl
+                     text-gray-500
+                     text-base sm:text-lg
+                     leading-8"
+            >
+              Custom mirrors, architectural glass, shower enclosures,
+              partitions and premium glass installations crafted with
+              precision for modern spaces.
+            </p>
+
+
+            <div
+              class="mt-9 flex flex-col
+                     sm:flex-row gap-3"
+            >
+
+              <a
+                href="#contact"
+                class="inline-flex items-center
+                       justify-center gap-3
+                       bg-black text-white
+                       px-7 py-4 rounded-xl
+                       font-semibold
+                       hover:bg-gray-800
+                       transition"
+              >
+                Start Your Project
+
+                <i
+                  class="fa-solid fa-arrow-right text-sm"
+                ></i>
+              </a>
+
+
+              <a
+                href="#projects"
+                class="inline-flex items-center
+                       justify-center gap-3
+                       glass px-7 py-4 rounded-xl
+                       font-semibold
+                       hover:bg-white
+                       transition"
+              >
+                Explore Our Work
+              </a>
+
+            </div>
+
+
+            <!-- STATS -->
+
+            <div
+              class="grid grid-cols-3
+                     max-w-lg mt-12 pt-7
+                     border-t border-gray-200"
+            >
+
+              <div>
+
+                <p
+                  class="text-2xl sm:text-3xl
+                         font-semibold"
+                >
+                  15+
+                </p>
+
+                <p
+                  class="text-xs sm:text-sm
+                         text-gray-400 mt-1"
+                >
+                  Years Experience
+                </p>
+
+              </div>
+
+
+              <div>
+
+                <p
+                  class="text-2xl sm:text-3xl
+                         font-semibold"
+                >
+                  1.8K+
+                </p>
+
+                <p
+                  class="text-xs sm:text-sm
+                         text-gray-400 mt-1"
+                >
+                  Projects
+                </p>
+
+              </div>
+
+
+              <div>
+
+                <p
+                  class="text-2xl sm:text-3xl
+                         font-semibold"
+                >
+                  98%
+                </p>
+
+                <p
+                  class="text-xs sm:text-sm
+                         text-gray-400 mt-1"
+                >
+                  Satisfaction
+                </p>
+
+              </div>
+
+            </div>
+
+          </div>
+
+
+          <!-- HERO IMAGE -->
+
+          <div
+            class="fade-up relative"
+          >
+
+            <div
+              class="absolute
+                     -top-7 -right-5
+                     w-28 h-28
+                     rounded-full
+                     mirror-gradient
+                     opacity-70
+                     blur-sm"
+            ></div>
+
+
+            <div
+              class="relative
+                     rounded-[35px]
+                     p-3
+                     glass
+                     glass-shine"
+            >
+
+              <div
+                class="hero-image
+                       h-[500px] sm:h-[620px]
+                       rounded-[27px]
+                       overflow-hidden
+                       relative"
+              >
+
+                <!-- Image overlay -->
+
+                <div
+                  class="absolute inset-0
+                         bg-gradient-to-t
+                         from-black/55
+                         via-transparent
+                         to-white/10"
+                ></div>
+
+
+                <!-- Floating glass card -->
+
+                <div
+                  class="absolute
+                         top-6 left-6
+                         glass-dark
+                         text-white
+                         rounded-2xl
+                         px-4 py-3
+                         float"
+                >
+
+                  <div
+                    class="flex items-center gap-3"
+                  >
+
+                    <div
+                      class="w-9 h-9
+                             rounded-xl
+                             bg-white/10
+                             flex items-center
+                             justify-center"
+                    >
+                      <i class="fa-solid fa-ruler-combined"></i>
+                    </div>
+
+                    <div>
+
+                      <p
+                        class="text-xs
+                               text-white/50"
+                      >
+                        Precision
+                      </p>
+
+                      <p
+                        class="text-sm
+                               font-semibold"
+                      >
+                        Custom Fit
+                      </p>
+
+                    </div>
+
+                  </div>
+
+                </div>
+
+
+                <!-- Bottom card -->
+
+                <div
+                  class="absolute
+                         left-5 right-5
+                         bottom-5
+                         glass-dark
+                         rounded-2xl
+                         p-5
+                         text-white"
+                >
+
+                  <div
+                    class="flex items-end
+                           justify-between gap-4"
+                  >
+
+                    <div>
+
+                      <p
+                        class="uppercase
+                               tracking-[0.25em]
+                               text-[10px]
+                               text-white/45"
+                      >
+                        Featured Installation
+                      </p>
+
+                      <h3
+                        class="text-xl
+                               font-semibold
+                               mt-2"
+                      >
+                        Frameless Glass
+                        Enclosure
+                      </h3>
+
+                    </div>
+
+
+                    <div
+                      class="w-11 h-11
+                             min-w-11
+                             rounded-full
+                             bg-white
+                             text-black
+                             flex items-center
+                             justify-center"
+                    >
+                      <i
+                        class="fa-solid fa-arrow-up-right-from-square text-sm"
+                      ></i>
+                    </div>
+
+                  </div>
+
+                </div>
+
+              </div>
+
+            </div>
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- =====================================================
+         SERVICES
+    ====================================================== -->
+
+    <section
+      id="services"
+      class="py-24 sm:py-32 bg-white"
+    >
+
+      <div
+        class="max-w-7xl mx-auto
+               px-5 sm:px-6 lg:px-8"
+      >
+
+        <div
+          class="fade-up
+                 grid lg:grid-cols-2
+                 gap-8 items-end mb-14"
+        >
+
+          <div>
+
+            <p
+              class="text-xs
+                     tracking-[0.3em]
+                     uppercase
+                     text-gray-400
+                     mb-4"
+            >
+              What We Do
+            </p>
+
+            <h2
+              class="text-4xl sm:text-5xl
+                     lg:text-6xl
+                     font-semibold
+                     tracking-[-0.05em]"
+            >
+              Complete glass
+              <span class="text-silver">
+                solutions.
+              </span>
+            </h2>
+
+          </div>
+
+
+          <p
+            class="text-gray-500
+                   leading-8
+                   max-w-lg lg:ml-auto"
+          >
+            From a single custom mirror to a complete architectural
+            glass installation, we bring precision and craftsmanship
+            to every project.
+          </p>
+
+        </div>
+
+
+        <div
+          class="grid md:grid-cols-2
+                 lg:grid-cols-3 gap-5"
+        >
+
+          <!-- CARD 1 -->
+
+          <div
+            class="fade-up glass glass-shine
+                   rounded-3xl
+                   p-7 min-h-[300px]
+                   flex flex-col
+                   justify-between
+                   hover:-translate-y-2
+                   transition duration-500"
+          >
+
+            <div
+              class="w-14 h-14
+                     rounded-2xl
+                     mirror-gradient
+                     flex items-center
+                     justify-center
+                     text-xl"
+            >
+              <i class="fa-regular fa-gem"></i>
+            </div>
+
+            <div>
+
+              <span
+                class="text-xs
+                       text-gray-400"
+              >
+                01
+              </span>
+
+              <h3
+                class="text-2xl
+                       font-semibold
+                       mt-2"
+              >
+                Custom Mirrors
+              </h3>
+
+              <p
+                class="text-gray-500
+                       leading-7
+                       mt-4"
+              >
+                Bespoke wall mirrors, vanity mirrors,
+                decorative mirrors and oversized
+                statement pieces.
+              </p>
+
+            </div>
+
+          </div>
+
+
+          <!-- CARD 2 -->
+
+          <div
+            class="fade-up glass glass-shine
+                   rounded-3xl
+                   p-7 min-h-[300px]
+                   flex flex-col
+                   justify-between
+                   hover:-translate-y-2
+                   transition duration-500"
+          >
+
+            <div
+              class="w-14 h-14
+                     rounded-2xl
+                     mirror-gradient
+                     flex items-center
+                     justify-center
+                     text-xl"
+            >
+              <i class="fa-solid fa-shower"></i>
+            </div>
+
+            <div>
+
+              <span
+                class="text-xs
+                       text-gray-400"
+              >
+                02
+              </span>
+
+              <h3
+                class="text-2xl
+                       font-semibold
+                       mt-2"
+              >
+                Shower Glass
+              </h3>
+
+              <p
+                class="text-gray-500
+                       leading-7
+                       mt-4"
+              >
+                Frameless shower enclosures,
+                glass doors and elegant bathroom
+                glass systems.
+              </p>
+
+            </div>
+
+          </div>
+
+
+          <!-- CARD 3 -->
+
+          <div
+            class="fade-up glass glass-shine
+                   rounded-3xl
+                   p-7 min-h-[300px]
+                   flex flex-col
+                   justify-between
+                   hover:-translate-y-2
+                   transition duration-500"
+          >
+
+            <div
+              class="w-14 h-14
+                     rounded-2xl
+                     mirror-gradient
+                     flex items-center
+                     justify-center
+                     text-xl"
+            >
+              <i class="fa-regular fa-building"></i>
+            </div>
+
+            <div>
+
+              <span
+                class="text-xs
+                       text-gray-400"
+              >
+                03
+              </span>
+
+              <h3
+                class="text-2xl
+                       font-semibold
+                       mt-2"
+              >
+                Glass Partitions
+              </h3>
+
+              <p
+                class="text-gray-500
+                       leading-7
+                       mt-4"
+              >
+                Modern office partitions and
+                interior glass walls that keep
+                spaces bright and open.
+              </p>
+
+            </div>
+
+          </div>
+
+
+          <!-- CARD 4 -->
+
+          <div
+            class="fade-up glass glass-shine
+                   rounded-3xl
+                   p-7 min-h-[300px]
+                   flex flex-col
+                   justify-between
+                   hover:-translate-y-2
+                   transition duration-500"
+          >
+
+            <div
+              class="w-14 h-14
+                     rounded-2xl
+                     mirror-gradient
+                     flex items-center
+                     justify-center
+                     text-xl"
+            >
+              <i class="fa-solid fa-door-open"></i>
+            </div>
+
+            <div>
+
+              <span
+                class="text-xs
+                       text-gray-400"
+              >
+                04
+              </span>
+
+              <h3
+                class="text-2xl
+                       font-semibold
+                       mt-2"
+              >
+                Glass Doors
+              </h3>
+
+              <p
+                class="text-gray-500
+                       leading-7
+                       mt-4"
+              >
+                Sleek glass doors for homes,
+                offices, retail and commercial
+                environments.
+              </p>
+
+            </div>
+
+          </div>
+
+
+          <!-- CARD 5 -->
+
+          <div
+            class="fade-up glass glass-shine
+                   rounded-3xl
+                   p-7 min-h-[300px]
+                   flex flex-col
+                   justify-between
+                   hover:-translate-y-2
+                   transition duration-500"
+          >
+
+            <div
+              class="w-14 h-14
+                     rounded-2xl
+                     mirror-gradient
+                     flex items-center
+                     justify-center
+                     text-xl"
+            >
+              <i class="fa-regular fa-window-maximize"></i>
+            </div>
+
+            <div>
+
+              <span
+                class="text-xs
+                       text-gray-400"
+              >
+                05
+              </span>
+
+              <h3
+                class="text-2xl
+                       font-semibold
+                       mt-2"
+              >
+                Window Glass
+              </h3>
+
+              <p
+                class="text-gray-500
+                       leading-7
+                       mt-4"
+              >
+                Replacement glass, custom panes
+                and architectural window solutions.
+              </p>
+
+            </div>
+
+          </div>
+
+
+          <!-- CARD 6 -->
+
+          <div
+            class="fade-up glass glass-shine
+                   rounded-3xl
+                   p-7 min-h-[300px]
+                   flex flex-col
+                   justify-between
+                   hover:-translate-y-2
+                   transition duration-500"
+          >
+
+            <div
+              class="w-14 h-14
+                     rounded-2xl
+                     mirror-gradient
+                     flex items-center
+                     justify-center
+                     text-xl"
+            >
+              <i class="fa-solid fa-stairs"></i>
+            </div>
+
+            <div>
+
+              <span
+                class="text-xs
+                       text-gray-400"
+              >
+                06
+              </span>
+
+              <h3
+                class="text-2xl
+                       font-semibold
+                       mt-2"
+              >
+                Glass Railings
+              </h3>
+
+              <p
+                class="text-gray-500
+                       leading-7
+                       mt-4"
+              >
+                Elegant glass railing systems
+                for balconies, staircases and
+                luxury interiors.
+              </p>
+
+            </div>
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- =====================================================
+         ABOUT
+    ====================================================== -->
+
+    <section
+      id="about"
+      class="py-24 sm:py-32 silver-gradient"
+    >
+
+      <div
+        class="max-w-7xl mx-auto
+               px-5 sm:px-6 lg:px-8"
+      >
+
+        <div
+          class="grid lg:grid-cols-2
+                 gap-14 lg:gap-20
+                 items-center"
+        >
+
+          <!-- IMAGE -->
+
+          <div class="fade-up">
+
+            <div
+              class="glass rounded-[35px]
+                     p-3"
+            >
+
+              <div
+                class="relative
+                       h-[500px]
+                       sm:h-[620px]
+                       rounded-[27px]
+                       overflow-hidden"
+              >
+
+                <img
+                  src="https://images.unsplash.com/photo-1600607687920-4e2a09cf159d?auto=format&fit=crop&w=1400&q=90"
+                  alt="Luxury modern interior"
+                  class="w-full h-full object-cover
+                         transition duration-700
+                         hover:scale-105"
+                />
+
+                <div
+                  class="absolute inset-0
+                         bg-gradient-to-t
+                         from-black/50
+                         to-transparent"
+                ></div>
+
+
+                <div
+                  class="absolute
+                         bottom-6 left-6 right-6
+                         glass-dark
+                         text-white
+                         rounded-2xl
+                         p-5"
+                >
+
+                  <p
+                    class="text-xs
+                           text-white/45
+                           uppercase
+                           tracking-[0.2em]"
+                  >
+                    LUMORA
+                  </p>
+
+                  <p
+                    class="text-lg
+                           sm:text-xl
+                           font-semibold
+                           mt-2"
+                  >
+                    Where craftsmanship meets
+                    modern architecture.
+                  </p>
+
+                </div>
+
+              </div>
+
+            </div>
+
+          </div>
+
+
+          <!-- CONTENT -->
+
+          <div class="fade-up">
+
+            <p
+              class="text-xs
+                     tracking-[0.3em]
+                     uppercase
+                     text-gray-500
+                     mb-4"
+            >
+              About Us
+            </p>
+
+            <h2
+              class="text-4xl
+                     sm:text-5xl
+                     lg:text-6xl
+                     font-semibold
+                     tracking-[-0.05em]"
+            >
+              Glass should feel
+              <span class="text-silver">
+                effortless.
+              </span>
+            </h2>
+
+
+            <p
+              class="text-gray-600
+                     leading-8
+                     mt-7"
+            >
+              At LUMORA, we believe the best glass installations
+              don't compete with a space. They enhance it.
+            </p>
+
+            <p
+              class="text-gray-500
+                     leading-8
+                     mt-5"
+            >
+              Our team combines accurate measurement, premium materials,
+              modern fabrication and professional installation to create
+              clean glass solutions that complement the architecture
+              around them.
+            </p>
+
+
+            <!-- FEATURES -->
+
+            <div class="mt-9 space-y-5">
+
+              <div class="flex gap-4">
+
+                <div
+                  class="w-11 h-11 min-w-11
+                         rounded-xl
+                         bg-black text-white
+                         flex items-center
+                         justify-center"
+                >
+                  <i class="fa-solid fa-check text-sm"></i>
+                </div>
+
+                <div>
+
+                  <h4 class="font-semibold">
+                    Precision Measurement
+                  </h4>
+
+                  <p
+                    class="text-gray-500
+                           text-sm
+                           mt-1"
+                  >
+                    Accurate measurements before
+                    every fabrication.
+                  </p>
+
+                </div>
+
+              </div>
+
+
+              <div class="flex gap-4">
+
+                <div
+                  class="w-11 h-11 min-w-11
+                         rounded-xl
+                         bg-black text-white
+                         flex items-center
+                         justify-center"
+                >
+                  <i class="fa-solid fa-check text-sm"></i>
+                </div>
+
+                <div>
+
+                  <h4 class="font-semibold">
+                    Premium Materials
+                  </h4>
+
+                  <p
+                    class="text-gray-500
+                           text-sm
+                           mt-1"
+                  >
+                    Quality glass, mirrors and
+                    reliable hardware.
+                  </p>
+
+                </div>
+
+              </div>
+
+
+              <div class="flex gap-4">
+
+                <div
+                  class="w-11 h-11 min-w-11
+                         rounded-xl
+                         bg-black text-white
+                         flex items-center
+                         justify-center"
+                >
+                  <i class="fa-solid fa-check text-sm"></i>
+                </div>
+
+                <div>
+
+                  <h4 class="font-semibold">
+                    Professional Installation
+                  </h4>
+
+                  <p
+                    class="text-gray-500
+                           text-sm
+                           mt-1"
+                  >
+                    Clean installation with
+                    attention to every detail.
+                  </p>
+
+                </div>
+
+              </div>
+
+            </div>
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- =====================================================
+         PROJECTS
+    ====================================================== -->
+
+    <section
+      id="projects"
+      class="py-24 sm:py-32 bg-[#f5f6f7]"
+    >
+
+      <div
+        class="max-w-7xl mx-auto
+               px-5 sm:px-6 lg:px-8"
+      >
+
+        <div
+          class="fade-up
+                 flex flex-col
+                 lg:flex-row
+                 lg:items-end
+                 lg:justify-between
+                 gap-6 mb-12"
+        >
+
+          <div>
+
+            <p
+              class="text-xs
+                     tracking-[0.3em]
+                     uppercase
+                     text-gray-400 mb-4"
+            >
+              Our Work
+            </p>
+
+            <h2
+              class="text-4xl
+                     sm:text-5xl
+                     lg:text-6xl
+                     font-semibold
+                     tracking-[-0.05em]"
+            >
+              Selected
+              <span class="text-silver">
+                projects.
+              </span>
+            </h2>
+
+          </div>
+
+
+          <p
+            class="text-gray-500
+                   max-w-md
+                   leading-7"
+          >
+            A selection of residential and commercial glass
+            installations designed around clean lines and timeless
+            materials.
+          </p>
+
+        </div>
+
+
+        <div
+          class="grid
+                 md:grid-cols-2
+                 lg:grid-cols-12
+                 gap-5"
+        >
+
+          <!-- PROJECT 1 -->
+
+          <article
+            class="fade-up
+                   lg:col-span-7
+                   h-[400px]
+                   lg:h-[520px]
+                   relative
+                   rounded-3xl
+                   overflow-hidden
+                   group"
+          >
+
+            <img
+              src="https://images.unsplash.com/photo-1600566753086-00f18fb6b3ea?auto=format&fit=crop&w=1500&q=90"
+              alt="Modern glass shower"
+              class="w-full h-full
+                     object-cover
+                     transition duration-700
+                     group-hover:scale-105"
+            />
+
+            <div
+              class="absolute inset-0
+                     bg-gradient-to-t
+                     from-black/70
+                     via-black/5
+                     to-transparent"
+            ></div>
+
+            <div
+              class="absolute
+                     bottom-0
+                     left-0
+                     right-0
+                     p-6 sm:p-8
+                     text-white"
+            >
+
+              <p
+                class="text-xs
+                       uppercase
+                       tracking-[0.25em]
+                       text-white/50"
+              >
+                Residential
+              </p>
+
+              <h3
+                class="text-2xl
+                       sm:text-3xl
+                       font-semibold mt-2"
+              >
+                Frameless Shower Enclosure
+              </h3>
+
+            </div>
+
+          </article>
+
+
+          <!-- PROJECT 2 -->
+
+          <article
+            class="fade-up
+                   lg:col-span-5
+                   h-[400px]
+                   lg:h-[520px]
+                   relative
+                   rounded-3xl
+                   overflow-hidden
+                   group"
+          >
+
+            <img
+              src="https://images.unsplash.com/photo-1600210492486-724fe5c67fb0?auto=format&fit=crop&w=1200&q=90"
+              alt="Modern interior mirror"
+              class="w-full h-full
+                     object-cover
+                     transition duration-700
+                     group-hover:scale-105"
+            />
+
+            <div
+              class="absolute inset-0
+                     bg-gradient-to-t
+                     from-black/70
+                     via-black/5
+                     to-transparent"
+            ></div>
+
+            <div
+              class="absolute
+                     bottom-0
+                     left-0
+                     right-0
+                     p-6 sm:p-8
+                     text-white"
+            >
+
+              <p
+                class="text-xs
+                       uppercase
+                       tracking-[0.25em]
+                       text-white/50"
+              >
+                Interior
+              </p>
+
+              <h3
+                class="text-2xl
+                       sm:text-3xl
+                       font-semibold mt-2"
+              >
+                Bespoke Wall Mirror
+              </h3>
+
+            </div>
+
+          </article>
+
+
+          <!-- PROJECT 3 -->
+
+          <article
+            class="fade-up
+                   lg:col-span-5
+                   h-[400px]
+                   relative
+                   rounded-3xl
+                   overflow-hidden
+                   group"
+          >
+
+            <img
+              src="https://images.unsplash.com/photo-1600585154526-990dced4db0d?auto=format&fit=crop&w=1200&q=90"
+              alt="Architectural glass"
+              class="w-full h-full
+                     object-cover
+                     transition duration-700
+                     group-hover:scale-105"
+            />
+
+            <div
+              class="absolute inset-0
+                     bg-gradient-to-t
+                     from-black/70
+                     via-transparent
+                     to-transparent"
+            ></div>
+
+            <div
+              class="absolute
+                     bottom-0
+                     p-6 sm:p-8
+                     text-white"
+            >
+
+              <p
+                class="text-xs
+                       uppercase
+                       tracking-[0.25em]
+                       text-white/50"
+              >
+                Architecture
+              </p>
+
+              <h3
+                class="text-2xl
+                       sm:text-3xl
+                       font-semibold mt-2"
+              >
+                Exterior Glass
+              </h3>
+
+            </div>
+
+          </article>
+
+
+          <!-- PROJECT 4 -->
+
+          <article
+            class="fade-up
+                   lg:col-span-7
+                   h-[400px]
+                   relative
+                   rounded-3xl
+                   overflow-hidden
+                   group"
+          >
+
+            <img
+              src="https://images.unsplash.com/photo-1600566753190-17f0baa2a6c3?auto=format&fit=crop&w=1400&q=90"
+              alt="Office glass partition"
+              class="w-full h-full
+                     object-cover
+                     transition duration-700
+                     group-hover:scale-105"
+            />
+
+            <div
+              class="absolute inset-0
+                     bg-gradient-to-t
+                     from-black/70
+                     via-transparent
+                     to-transparent"
+            ></div>
+
+            <div
+              class="absolute
+                     bottom-0
+                     p-6 sm:p-8
+                     text-white"
+            >
+
+              <p
+                class="text-xs
+                       uppercase
+                       tracking-[0.25em]
+                       text-white/50"
+              >
+                Commercial
+              </p>
+
+              <h3
+                class="text-2xl
+                       sm:text-3xl
+                       font-semibold mt-2"
+              >
+                Office Glass Partitions
+              </h3>
+
+            </div>
+
+          </article>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- =====================================================
+         PROCESS
+    ====================================================== -->
+
+    <section
+      class="py-24 sm:py-32 bg-white"
+    >
+
+      <div
+        class="max-w-7xl mx-auto
+               px-5 sm:px-6 lg:px-8"
+      >
+
+        <div
+          class="fade-up text-center
+                 max-w-3xl mx-auto"
+        >
+
+          <p
+            class="text-xs
+                   tracking-[0.3em]
+                   uppercase
+                   text-gray-400 mb-4"
+          >
+            How It Works
+          </p>
+
+          <h2
+            class="text-4xl
+                   sm:text-5xl
+                   lg:text-6xl
+                   font-semibold
+                   tracking-[-0.05em]"
+          >
+            Simple process.
+            <span class="text-silver">
+              Perfect finish.
+            </span>
+          </h2>
+
+        </div>
+
+
+        <div
+          class="grid md:grid-cols-3
+                 gap-5 mt-14"
+        >
+
+          <!-- PROCESS 1 -->
+
+          <div
+            class="fade-up
+                   glass
+                   rounded-3xl
+                   p-7 sm:p-8"
+          >
+
+            <div
+              class="w-14 h-14
+                     rounded-full
+                     bg-black
+                     text-white
+                     flex items-center
+                     justify-center
+                     text-lg"
+            >
+              01
+            </div>
+
+            <h3
+              class="text-2xl
+                     font-semibold
+                     mt-8"
+            >
+              Consultation
+            </h3>
+
+            <p
+              class="text-gray-500
+                     leading-7
+                     mt-4"
+            >
+              Tell us about your space, requirements,
+              preferred style and project goals.
+            </p>
+
+          </div>
+
+
+          <!-- PROCESS 2 -->
+
+          <div
+            class="fade-up
+                   glass
+                   rounded-3xl
+                   p-7 sm:p-8"
+          >
+
+            <div
+              class="w-14 h-14
+                     rounded-full
+                     bg-black
+                     text-white
+                     flex items-center
+                     justify-center
+                     text-lg"
+            >
+              02
+            </div>
+
+            <h3
+              class="text-2xl
+                     font-semibold
+                     mt-8"
+            >
+              Measure & Fabricate
+            </h3>
+
+            <p
+              class="text-gray-500
+                     leading-7
+                     mt-4"
+            >
+              We take precise measurements and
+              prepare your glass or mirror for
+              fabrication.
+            </p>
+
+          </div>
+
+
+          <!-- PROCESS 3 -->
+
+          <div
+            class="fade-up
+                   glass
+                   rounded-3xl
+                   p-7 sm:p-8"
+          >
+
+            <div
+              class="w-14 h-14
+                     rounded-full
+                     bg-black
+                     text-white
+                     flex items-center
+                     justify-center
+                     text-lg"
+            >
+              03
+            </div>
+
+            <h3
+              class="text-2xl
+                     font-semibold
+                     mt-8"
+            >
+              Installation
+            </h3>
+
+            <p
+              class="text-gray-500
+                     leading-7
+                     mt-4"
+            >
+              Our team carefully installs the finished
+              product and leaves your space clean.
+            </p>
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- =====================================================
+         DARK CTA
+    ====================================================== -->
+
+    <section
+      class="py-24 sm:py-32
+             bg-[#111315]
+             relative overflow-hidden"
+    >
+
+      <div
+        class="absolute
+               -top-48
+               -right-48
+               w-[500px]
+               h-[500px]
+               rounded-full
+               bg-white/10
+               blur-[130px]"
+      ></div>
+
+      <div
+        class="absolute
+               -bottom-48
+               -left-48
+               w-[500px]
+               h-[500px]
+               rounded-full
+               bg-slate-400/10
+               blur-[130px]"
+      ></div>
+
+
+      <div
+        class="max-w-5xl mx-auto
+               px-5 sm:px-6 lg:px-8
+               text-center
+               relative z-10"
+      >
+
+        <p
+          class="fade-up
+                 text-xs
+                 tracking-[0.3em]
+                 uppercase
+                 text-white/40 mb-5"
+        >
+          Quality You Can See
+        </p>
+
+        <h2
+          class="fade-up
+                 text-4xl sm:text-6xl
+                 lg:text-7xl
+                 font-semibold
+                 tracking-[-0.05em]
+                 text-white"
+        >
+          Bring more light,
+          <span class="text-white/40">
+            depth and clarity
+          </span>
+          to your space.
+        </h2>
+
+        <p
+          class="fade-up
+                 max-w-2xl
+                 mx-auto
+                 text-white/45
+                 leading-8
+                 mt-7"
+        >
+          Whether you're renovating a bathroom, upgrading an office
+          or designing a new space, let's create the right glass
+          solution for you.
+        </p>
+
+        <div class="fade-up mt-9">
+
+          <a
+            href="#contact"
+            class="inline-flex
+                   items-center
+                   gap-3
+                   bg-white
+                   text-black
+                   px-8 py-4
+                   rounded-xl
+                   font-semibold
+                   hover:bg-gray-200
+                   transition"
+          >
+            Request a Free Quote
+
+            <i
+              class="fa-solid fa-arrow-right"
+            ></i>
+          </a>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- =====================================================
+         CONTACT
+    ====================================================== -->
+
+    <section
+      id="contact"
+      class="py-24 sm:py-32
+             silver-gradient"
+    >
+
+      <div
+        class="max-w-7xl mx-auto
+               px-5 sm:px-6 lg:px-8"
+      >
+
+        <div
+          class="grid lg:grid-cols-2
+                 gap-14 lg:gap-20
+                 items-start"
+        >
+
+          <!-- LEFT -->
+
+          <div class="fade-up">
+
+            <p
+              class="text-xs
+                     tracking-[0.3em]
+                     uppercase
+                     text-gray-500 mb-4"
+            >
+              Contact
+            </p>
+
+            <h2
+              class="text-4xl
+                     sm:text-5xl
+                     lg:text-6xl
+                     font-semibold
+                     tracking-[-0.05em]"
+            >
+              Let's talk about
+              <span class="text-silver">
+                your project.
+              </span>
+            </h2>
+
+            <p
+              class="text-gray-500
+                     leading-8
+                     mt-7
+                     max-w-lg"
+            >
+              Send us a few details about your project and
+              we'll get back to you with the next steps.
+            </p>
+
+
+            <!-- CONTACT DETAILS -->
+
+            <div class="mt-10 space-y-4">
+
+              <a
+                href="tel:+15550000000"
+                class="glass
+                       rounded-2xl
+                       p-5
+                       flex items-center
+                       gap-4
+                       hover:bg-white
+                       transition"
+              >
+
+                <div
+                  class="w-11 h-11
+                         rounded-xl
+                         bg-black
+                         text-white
+                         flex items-center
+                         justify-center"
+                >
+                  <i class="fa-solid fa-phone"></i>
+                </div>
+
+                <div>
+
+                  <p
+                    class="text-xs
+                           text-gray-400"
+                  >
+                    Phone
+                  </p>
+
+                  <p
+                    class="font-semibold
+                           mt-1"
+                  >
+                    +1 555 000 0000
+                  </p>
+
+                </div>
+
+              </a>
+
+
+              <a
+                href="mailto:hello@lumoraglass.com"
+                class="glass
+                       rounded-2xl
+                       p-5
+                       flex items-center
+                       gap-4
+                       hover:bg-white
+                       transition"
+              >
+
+                <div
+                  class="w-11 h-11
+                         rounded-xl
+                         bg-black
+                         text-white
+                         flex items-center
+                         justify-center"
+                >
+                  <i class="fa-regular fa-envelope"></i>
+                </div>
+
+                <div>
+
+                  <p
+                    class="text-xs
+                           text-gray-400"
+                  >
+                    Email
+                  </p>
+
+                  <p
+                    class="font-semibold
+                           mt-1"
+                  >
+                    hello@lumoraglass.com
+                  </p>
+
+                </div>
+
+              </a>
+
+
+              <div
+                class="glass
+                       rounded-2xl
+                       p-5
+                       flex items-center
+                       gap-4"
+              >
+
+                <div
+                  class="w-11 h-11
+                         rounded-xl
+                         bg-black
+                         text-white
+                         flex items-center
+                         justify-center"
+                >
+                  <i class="fa-solid fa-location-dot"></i>
+                </div>
+
+                <div>
+
+                  <p
+                    class="text-xs
+                           text-gray-400"
+                  >
+                    Service Area
+                  </p>
+
+                  <p
+                    class="font-semibold
+                           mt-1"
+                  >
+                    Your City & Nearby Areas
+                  </p>
+
+                </div>
+
+              </div>
+
+            </div>
+
+          </div>
+
+
+          <!-- FORM -->
+
+          <div
+            class="fade-up
+                   glass
+                   rounded-[30px]
+                   p-6 sm:p-8"
+          >
+
+            <form id="quoteForm">
+
+              <div
+                class="grid sm:grid-cols-2
+                       gap-5"
+              >
+
+                <!-- NAME -->
+
+                <div>
+
+                  <label
+                    class="block
+                           text-sm
+                           font-medium
+                           text-gray-600
+                           mb-2"
+                  >
+                    Name
+                  </label>
+
+                  <input
+                    type="text"
+                    required
+                    placeholder="Your name"
+                    class="w-full
+                           bg-white/60
+                           border
+                           border-gray-200
+                           rounded-xl
+                           px-4 py-3.5
+                           outline-none
+                           focus:border-black
+                           transition
+                           placeholder:text-gray-400"
+                  />
+
+                </div>
+
+
+                <!-- PHONE -->
+
+                <div>
+
+                  <label
+                    class="block
+                           text-sm
+                           font-medium
+                           text-gray-600
+                           mb-2"
+                  >
+                    Phone
+                  </label>
+
+                  <input
+                    type="tel"
+                    required
+                    placeholder="+1 555 000 0000"
+                    class="w-full
+                           bg-white/60
+                           border
+                           border-gray-200
+                           rounded-xl
+                           px-4 py-3.5
+                           outline-none
+                           focus:border-black
+                           transition
+                           placeholder:text-gray-400"
+                  />
+
+                </div>
+
+
+                <!-- EMAIL -->
+
+                <div>
+
+                  <label
+                    class="block
+                           text-sm
+                           font-medium
+                           text-gray-600
+                           mb-2"
+                  >
+                    Email
+                  </label>
+
+                  <input
+                    type="email"
+                    placeholder="you@example.com"
+                    class="w-full
+                           bg-white/60
+                           border
+                           border-gray-200
+                           rounded-xl
+                           px-4 py-3.5
+                           outline-none
+                           focus:border-black
+                           transition
+                           placeholder:text-gray-400"
+                  />
+
+                </div>
+
+
+                <!-- SERVICE -->
+
+                <div>
+
+                  <label
+                    class="block
+                           text-sm
+                           font-medium
+                           text-gray-600
+                           mb-2"
+                  >
+                    Service
+                  </label>
+
+                  <select
+                    class="w-full
+                           bg-white/70
+                           border
+                           border-gray-200
+                           rounded-xl
+                           px-4 py-3.5
+                           outline-none
+                           focus:border-black
+                           transition"
+                  >
+
+                    <option>
+                      Custom Mirrors
+                    </option>
+
+                    <option>
+                      Shower Glass
+                    </option>
+
+                    <option>
+                      Glass Partitions
+                    </option>
+
+                    <option>
+                      Glass Doors
+                    </option>
+
+                    <option>
+                      Window Glass
+                    </option>
+
+                    <option>
+                      Glass Railings
+                    </option>
+
+                    <option>
+                      Other
+                    </option>
+
+                  </select>
+
+                </div>
+
+              </div>
+
+
+              <!-- MESSAGE -->
+
+              <div class="mt-5">
+
+                <label
+                  class="block
+                         text-sm
+                         font-medium
+                         text-gray-600
+                         mb-2"
+                >
+                  Project Details
+                </label>
+
+                <textarea
+                  rows="6"
+                  placeholder="Tell us about your project..."
+                  class="w-full
+                         bg-white/60
+                         border
+                         border-gray-200
+                         rounded-xl
+                         px-4 py-3.5
+                         outline-none
+                         resize-none
+                         focus:border-black
+                         transition
+                         placeholder:text-gray-400"
+                ></textarea>
+
+              </div>
+
+
+              <!-- SUBMIT -->
+
+              <button
+                type="submit"
+                class="w-full
+                       mt-5
+                       bg-black
+                       text-white
+                       rounded-xl
+                       py-4
+                       font-semibold
+                       flex items-center
+                       justify-center
+                       gap-3
+                       hover:bg-gray-800
+                       transition"
+              >
+
+                Send Request
+
+                <i
+                  class="fa-solid fa-arrow-right"
+                ></i>
+
+              </button>
+
+              <p
+                class="text-xs
+                       text-gray-400
+                       text-center
+                       mt-4"
+              >
+                We'll get back to you as soon as possible.
+              </p>
+
+            </form>
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </section>
+
+  </main>
+
+
+  <!-- =====================================================
+       FOOTER
+  ====================================================== -->
+
+  <footer
+    class="bg-[#111315]
+           text-white"
+  >
+
+    <div
+      class="max-w-7xl mx-auto
+             px-5 sm:px-6 lg:px-8
+             py-12"
+    >
+
+      <div
+        class="flex flex-col
+               lg:flex-row
+               justify-between
+               gap-10"
+      >
+
+        <!-- BRAND -->
+
+        <div class="max-w-sm">
+
+          <a
+            href="#home"
+            class="flex items-center gap-3"
+          >
+
+            <div
+              class="w-10 h-10
+                     rounded-xl
+                     bg-white
+                     text-black
+                     flex items-center
+                     justify-center"
+            >
+              <i class="fa-regular fa-gem"></i>
+            </div>
+
+            <div>
+
+              <h3
+                class="font-bold
+                       tracking-[0.18em]"
+              >
+                LUMORA
+              </h3>
+
+              <p
+                class="text-[9px]
+                       tracking-[0.28em]
+                       uppercase
+                       text-white/40"
+              >
+                Glass & Mirrors
+              </p>
+
+            </div>
+
+          </a>
+
+
+          <p
+            class="text-white/40
+                   text-sm
+                   leading-7
+                   mt-5"
+          >
+            Premium glass and mirror solutions
+            designed for modern residential
+            and commercial spaces.
+          </p>
+
+        </div>
+
+
+        <!-- LINKS -->
+
+        <div
+          class="grid
+                 grid-cols-2
+                 sm:grid-cols-3
+                 gap-10"
+        >
+
+          <div>
+
+            <h4 class="font-semibold mb-4">
+              Company
+            </h4>
+
+            <div
+              class="flex flex-col gap-3
+                     text-sm text-white/40"
+            >
+
+              <a
+                href="#about"
+                class="hover:text-white transition"
+              >
+                About
+              </a>
+
+              <a
+                href="#projects"
+                class="hover:text-white transition"
+              >
+                Projects
+              </a>
+
+              <a
+                href="#contact"
+                class="hover:text-white transition"
+              >
+                Contact
+              </a>
+
+            </div>
+
+          </div>
+
+
+          <div>
+
+            <h4 class="font-semibold mb-4">
+              Services
+            </h4>
+
+            <div
+              class="flex flex-col gap-3
+                     text-sm text-white/40"
+            >
+
+              <a
+                href="#services"
+                class="hover:text-white transition"
+              >
+                Mirrors
+              </a>
+
+              <a
+                href="#services"
+                class="hover:text-white transition"
+              >
+                Shower Glass
+              </a>
+
+              <a
+                href="#services"
+                class="hover:text-white transition"
+              >
+                Partitions
+              </a>
+
+            </div>
+
+          </div>
+
+
+          <div>
+
+            <h4 class="font-semibold mb-4">
+              Social
+            </h4>
+
+            <div class="flex gap-3">
+
+              <a
+                href="#"
+                class="w-10 h-10
+                       rounded-full
+                       border border-white/10
+                       flex items-center
+                       justify-center
+                       hover:bg-white
+                       hover:text-black
+                       transition"
+              >
+                <i class="fa-brands fa-instagram"></i>
+              </a>
+
+              <a
+                href="#"
+                class="w-10 h-10
+                       rounded-full
+                       border border-white/10
+                       flex items-center
+                       justify-center
+                       hover:bg-white
+                       hover:text-black
+                       transition"
+              >
+                <i class="fa-brands fa-facebook-f"></i>
+              </a>
+
+              <a
+                href="#"
+                class="w-10 h-10
+                       rounded-full
+                       border border-white/10
+                       flex items-center
+                       justify-center
+                       hover:bg-white
+                       hover:text-black
+                       transition"
+              >
+                <i class="fa-brands fa-whatsapp"></i>
+              </a>
+
+            </div>
+
+          </div>
+
+        </div>
+
+      </div>
+
+
+      <!-- COPYRIGHT -->
+
+      <div
+        class="border-t
+               border-white/10
+               mt-12 pt-7
+               flex flex-col
+               sm:flex-row
+               justify-between
+               gap-3
+               text-xs
+               text-white/30"
+      >
+
+        <p>
+          © <span id="year"></span>
+          LUMORA Glass & Mirrors.
+          All rights reserved.
+        </p>
+
+        <p>
+          Precision • Clarity • Craftsmanship
+        </p>
+
+      </div>
+
+    </div>
+
+  </footer>
+
+
+  <!-- =====================================================
+       SUCCESS TOAST
+  ====================================================== -->
+
+  <div
+    id="successToast"
+    class="fixed
+           bottom-6
+           right-5
+           sm:right-6
+           z-[100]
+           glass-dark
+           text-white
+           rounded-2xl
+           px-5 py-4
+           translate-y-24
+           opacity-0
+           pointer-events-none
+           transition-all duration-500"
+  >
+
+    <div class="flex items-center gap-3">
+
+      <div
+        class="w-9 h-9
+               rounded-full
+               bg-white
+               text-black
+               flex items-center
+               justify-center"
+      >
+        <i class="fa-solid fa-check"></i>
+      </div>
+
+      <div>
+
+        <p
+          class="text-sm
+                 font-semibold"
+        >
+          Request received
+        </p>
+
+        <p
+          class="text-xs
+                 text-white/45
+                 mt-1"
+        >
+          We'll contact you shortly.
+        </p>
+
+      </div>
+
+    </div>
+
+  </div>
+
+
+  <!-- =====================================================
+       JAVASCRIPT
+  ====================================================== -->
+
+  <script>
+
+    /* =========================
+       MOBILE MENU
+    ========================= */
+
+    const menuBtn =
+      document.getElementById("menuBtn");
+
+    const mobileMenu =
+      document.getElementById("mobileMenu");
+
+    const menuIcon =
+      document.getElementById("menuIcon");
+
+    menuBtn.addEventListener("click", () => {
+
+      mobileMenu.classList.toggle("hidden");
+
+      if (mobileMenu.classList.contains("hidden")) {
+
+        menuIcon.classList.remove("fa-xmark");
+        menuIcon.classList.add("fa-bars");
+
+      } else {
+
+        menuIcon.classList.remove("fa-bars");
+        menuIcon.classList.add("fa-xmark");
+
+      }
+
+    });
+
+
+    /* =========================
+       CLOSE MOBILE MENU
+    ========================= */
+
+    document
+      .querySelectorAll(".mobile-link")
+      .forEach((link) => {
+
+        link.addEventListener("click", () => {
+
+          mobileMenu.classList.add("hidden");
+
+          menuIcon.classList.remove("fa-xmark");
+          menuIcon.classList.add("fa-bars");
+
+        });
+
+      });
+
+
+    /* =========================
+       NAVBAR SCROLL
+    ========================= */
+
+    const navbar =
+      document.getElementById("navbar");
+
+    window.addEventListener("scroll", () => {
+
+      if (window.scrollY > 30) {
+
+        navbar.classList.add("scale-[0.98]");
+
+      } else {
+
+        navbar.classList.remove("scale-[0.98]");
+
+      }
+
+    });
+
+
+    /* =========================
+       SCROLL REVEAL
+    ========================= */
+
+    const observer =
+      new IntersectionObserver(
+        (entries) => {
+
+          entries.forEach((entry) => {
+
+            if (entry.isIntersecting) {
+
+              entry.target.classList.add("show");
+
+              observer.unobserve(entry.target);
+
+            }
+
+          });
+
+        },
+        {
+          threshold: 0.12
+        }
+      );
+
+
+    document
+      .querySelectorAll(".fade-up")
+      .forEach((element) => {
+
+        observer.observe(element);
+
+      });
+
+
+    /* =========================
+       FORM
+    ========================= */
+
+    const quoteForm =
+      document.getElementById("quoteForm");
+
+    const successToast =
+      document.getElementById("successToast");
+
+    quoteForm.addEventListener(
+      "submit",
+      (event) => {
+
+        event.preventDefault();
+
+        successToast.classList.remove(
+          "translate-y-24",
+          "opacity-0"
+        );
+
+        successToast.classList.add(
+          "translate-y-0",
+          "opacity-100"
+        );
+
+        quoteForm.reset();
+
+        setTimeout(() => {
+
+          successToast.classList.remove(
+            "translate-y-0",
+            "opacity-100"
+          );
+
+          successToast.classList.add(
+            "translate-y-24",
+            "opacity-0"
+          );
+
+        }, 3500);
+
+      }
+    );
+
+
+    /* =========================
+       YEAR
+    ========================= */
+
+    document.getElementById("year").textContent =
+      new Date().getFullYear();
+
+  </script>
+
+</body>
+</html>

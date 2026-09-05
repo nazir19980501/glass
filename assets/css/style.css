@@ -1,0 +1,103 @@
+@import "tailwindcss";
+
+@custom-variant dark (&:where(.dark, .dark *));
+
+body {
+  font-family: "Outfit", sans-serif;
+}
+
+/* GLASS NAVBAR */
+
+.glass {
+  background: rgba(255, 255, 255, 0.45);
+
+  backdrop-filter: blur(25px);
+
+  -webkit-backdrop-filter: blur(25px);
+}
+
+.dark .glass {
+  background: rgba(10, 10, 10, 0.55);
+}
+
+/* HERO BACKGROUND */
+
+.hero-gradient {
+  background: radial-gradient(
+    circle at top right,
+    rgba(212, 175, 55, 0.18),
+    transparent 35%
+  );
+}
+
+/* MOBILE MENU ANIMATION */
+
+.menu-line {
+  transition: all 0.3s ease;
+}
+
+.active .line-one {
+  transform: translateY(8px) rotate(45deg);
+}
+
+.active .line-two {
+  opacity: 0;
+}
+
+.active .line-three {
+  transform: translateY(-8px) rotate(-45deg);
+}
+
+/* REVEAL ANIMATION */
+
+.reveal {
+  animation: fadeUp 1s ease forwards;
+}
+
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+
+    transform: translateY(40px);
+  }
+
+  to {
+    opacity: 1;
+
+    transform: translateY(0);
+  }
+}
+
+/* GLASS CARDS */
+
+.glass-card {
+  background: rgba(255, 255, 255, 0.35);
+
+  backdrop-filter: blur(20px);
+
+  -webkit-backdrop-filter: blur(20px);
+
+  border: 1px solid rgba(255, 255, 255, 0.25);
+}
+
+.dark .glass-card {
+  background: rgba(255, 255, 255, 0.05);
+
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+/* IMAGE HOVER */
+
+.image-hover {
+  transition: transform 0.7s ease;
+}
+
+.image-hover:hover {
+  transform: scale(1.1);
+}
+
+/* SMOOTH TRANSITIONS */
+
+* {
+  scroll-behavior: smooth;
+}
